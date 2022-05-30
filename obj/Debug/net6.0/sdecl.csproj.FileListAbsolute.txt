@@ -1,0 +1,15 @@
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\sdecl.exe
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\sdecl.deps.json
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\sdecl.runtimeconfig.json
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\sdecl.dll
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\sdecl.pdb
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.csproj.AssemblyReference.cache
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.AssemblyInfoInputs.cache
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.AssemblyInfo.cs
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.csproj.CoreCompileInputs.cache
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.dll
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\refint\sdecl.dll
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.pdb
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.genruntimeconfig.cache
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\ref\sdecl.dll

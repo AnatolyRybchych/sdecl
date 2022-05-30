@@ -1,11 +1,12 @@
 ﻿
 
-namespace Sdecl;
-
-class Program
+namespace sdecl
 {
-    static void Main(string[] args)
+    class Program
     {
-
+        static void Main(string[] args)
+        {
+            Console.WriteLine(new RootCommand().Execute(new ArgumentProvider(args), new Cache(), new NullCommand())); ;
+        }
     }
 }
