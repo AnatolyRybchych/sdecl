@@ -8,10 +8,8 @@ namespace sdecl
 {
     internal class ListCommand<T> : Command where T : Command, new()
     {
-        public override Command[] Commands => new Command[]
-        {
-            new AddCommand(),
-        };
+        private Command[] commands;
+        public override Command[] Commands => commands;
 
         public override string Type => $"List<{new T().Type}>";
 
@@ -22,16 +20,22 @@ namespace sdecl
         private string commandText;
         public override string CommandText => commandText;
 
-        public List<T> Elements { get; protected set; }
+        public List<T> Elements { get; set; }
 
         public ListCommand()
         {
+            commands = new Command[]{
+                new AddCommand(),
+            };
             Elements = new List<T>();
             this.commandText = "list";
         }
 
         public ListCommand(string commandText, List<T> elements)
         {
+            commands = new Command[]{
+                new AddCommand(),
+            };
             Elements = elements;
             this.commandText = commandText;
         }
@@ -47,7 +51,7 @@ namespace sdecl
 
                 this.Elements = listCmd.Elements;
 
-                this.Elements.Add((T)new T().FromString(args.RequiredNext($"\"{Type} add \"{new T().Type}\"\" comaand \nmissing required argument")));
+                this.Elements.Add((T)new T().FromArg(args));
             }
         }
     }

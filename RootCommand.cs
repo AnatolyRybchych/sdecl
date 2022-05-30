@@ -9,11 +9,10 @@ namespace sdecl
 {
     internal class RootCommand : Command
     {
-        public override Command[] Commands => 
-            new Command[]
-            {
-
-            };
+        private ListCommand<DirectoryCommand> dirsCmd;
+        private Command[] commands;
+        public override Command[] Commands => commands;
+        
 
         public override string Type => "sdecl";
 
@@ -29,5 +28,20 @@ namespace sdecl
         public override string StringRepresentation => $"it`s root object, you can see commads using \n\"{Type} {CommandsCommandText}\"";
 
         public override string CommandText => Type;
+
+        public RootCommand()
+        {
+            dirsCmd = new ListCommand<DirectoryCommand>();
+            commands = new Command[]
+            {
+                dirsCmd,
+            };
+        }
+
+        public override void _Execute(ArgumentProvider args, Cache cache, Command previous)
+        {
+            dirsCmd.Elements = cache.Settings.ObservableDirectories.Select(dir=>new DirectoryCommand(dir)).ToList();
+            base._Execute(args, cache, previous);
+        }
     }
 }

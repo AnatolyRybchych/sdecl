@@ -19,7 +19,7 @@ namespace sdecl
         public const string TypeCommandText = "type";
         public const string CommandsCommandText = "commands";
 
-        public virtual Command FromString(string str) => throw new Exception($"Cannot create {Type} from string");
+        public virtual Command FromArg(ArgumentProvider args) => throw new Exception($"Cannot create {Type} from string");
 
         public virtual void _Execute(ArgumentProvider args, Cache cache, Command previous) { }
 

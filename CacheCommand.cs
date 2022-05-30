@@ -10,7 +10,7 @@ namespace sdecl
     {
         public override Command[] Commands => new Command[]
         {
-
+            
         };
 
         public override string Type => "cache";
