@@ -9,7 +9,7 @@ namespace sdecl
     internal class CacheSettings
     {
         public List<ObservableDirectory> ObservableDirectories { get; set; }
-        public List<string> ObservableFiles { get; private set; }
+        public List<string> ObservableFiles { get; set; }
 
         public CacheSettings()
         {

@@ -11,8 +11,8 @@ namespace sdecl
 {
     internal class Cache
     {
-        public List<string> HeaderFiles { get; private set; }
-        public CacheSettings Settings { get; private set; }
+        public List<string> HeaderFiles { get; set; }
+        public CacheSettings Settings { get; set; }
 
         public Cache()
         {
@@ -52,7 +52,9 @@ namespace sdecl
 
             HeaderFiles.AddRange(Directory.GetFiles(cacheFolder).Where(file=>Path.GetExtension(file) == $".{ChacheFileExtension}"));
         }
-        
+
+        public void Serialize() => File.WriteAllText(CacheSettingsFilePath, JsonSerializer.Serialize(Settings));
+
         public string FolderPath => Path.Combine(AssemblyPath, FolderName);
         public string CacheSettingsFilePath => Path.Combine(AssemblyPath, CacheSettingsFileName);
 
@@ -61,5 +63,10 @@ namespace sdecl
         public const string FolderName = "Cache";
 
         private string AssemblyPath = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? "./sdecl.dll") ?? "./";
+
+        public override string ToString()
+        {
+            return $"cache: {{\n    dirs\n    files\n}}";
+        }
     }
 }

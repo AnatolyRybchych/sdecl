@@ -9,8 +9,8 @@ namespace sdecl
 {
     internal class ObservableDirectory
     {
-        public string? Path { get; private set; }
-        public bool Reqursive { get; private set; }
+        public string? Path { get; set; }
+        public bool Reqursive { get; set; }
 
         public ObservableDirectory()
         {
