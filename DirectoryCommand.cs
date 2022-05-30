@@ -8,7 +8,6 @@ namespace sdecl
 {
     internal class DirectoryCommand : Command
     {
-
         private ValueCommand<string> pathCommand;
         private ValueCommand<bool> reqursiveCommand;
 
@@ -41,12 +40,12 @@ namespace sdecl
             Directory = directory;
         }
 
-        public override void _Execute(ArgumentProvider args, Cache cache, Command previous)
+        public override void _Execute(ArgumentProvider args, ref object? context, Command previous)
         {
-            pathCommand.Value = ((DirectoryCommand)previous).Directory.Path;
-            reqursiveCommand.Value = ((DirectoryCommand)previous).Directory.Reqursive;
-            base._Execute(args, cache, previous);
+            if (context == null) throw new NullReferenceException("directory null");
+            if (context is DirectoryCommand == false) throw new InvalidDataException("command context is not directory");
+            pathCommand.Value = ((DirectoryCommand)context).Directory.Path;
+            reqursiveCommand.Value = ((DirectoryCommand)context).Directory.Reqursive;
         }
-
     }
 }

@@ -6,9 +6,14 @@ namespace sdecl
     {
         static void Main(string[] args)
         {
+            object? cache = new Cache();
+#if DEBUG
+                Console.WriteLine(new RootCommand().Execute(new ArgumentProvider(args), ref cache, new NullCommand()));
+                Console.WriteLine();
+#else
             try
             {
-                Console.WriteLine(new RootCommand().Execute(new ArgumentProvider(args), new Cache(), new NullCommand()));
+                Console.WriteLine(new RootCommand().Execute(new ArgumentProvider(args), ref cache, new NullCommand()));
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -16,6 +21,7 @@ namespace sdecl
                 Console.Error.WriteLine(e.Message);
                 Environment.Exit(-1);
             }
+#endif
         }
     }
 }

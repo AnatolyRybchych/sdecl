@@ -2,6 +2,10 @@
   "profiles": {
     "sdecl": {
       "commandName": "Project"
+    },
+    "Профиль 1": {
+      "commandName": "Project",
+      "commandLineArgs": "cache dirs at"
     }
   }
 }

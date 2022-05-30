@@ -9,10 +9,9 @@ namespace sdecl
 {
     internal class RootCommand : Command
     {
-        private ListCommand<DirectoryCommand> dirsCmd;
-        private Command[] commands;
-        public override Command[] Commands => commands;
-        
+
+        private CacheCommand cacheCommand;
+        public override Command[] Commands { get; }
 
         public override string Type => "sdecl";
 
@@ -31,17 +30,18 @@ namespace sdecl
 
         public RootCommand()
         {
-            dirsCmd = new ListCommand<DirectoryCommand>();
-            commands = new Command[]
+            cacheCommand = new CacheCommand();
+
+            Commands = new Command[]
             {
-                dirsCmd,
+                cacheCommand,
             };
         }
 
-        public override void _Execute(ArgumentProvider args, Cache cache, Command previous)
+        public override void _Execute(ArgumentProvider args, ref object? context, Command previous)
         {
-            dirsCmd.Elements = cache.Settings.ObservableDirectories.Select(dir=>new DirectoryCommand(dir)).ToList();
-            base._Execute(args, cache, previous);
+            if (context == null || (context is Cache == false)) throw new Exception("root comand, invalid context");
+            Cache cache = (Cache)context;
         }
     }
 }
