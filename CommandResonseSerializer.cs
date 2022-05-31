@@ -16,13 +16,16 @@ namespace sdecl
 
         public string Serialize(object obj)
         {
-            if(obj.GetType().GetMethod("ToString", new Type[0])?.DeclaringType == typeof(object))
-            {
-                return JsonSerializer.Serialize(obj).FormatJson();
-            }
-            else
+            if(obj.GetType().GetMethod("ToString", new Type[0])?.DeclaringType != typeof(object))
             {
                 return obj.ToString() ?? "empty response";
+            }
+            else  
+            {
+                if((obj.GetType().IsAssignableTo(typeof(IEnumerable<object>))))
+                    return "[\n    " + string.Join(",\n    ", ((IEnumerable<object>)obj).Select(o => Serialize(o))) + "\n]";
+                else
+                    return JsonSerializer.Serialize(obj).FormatJson();
             }
         }
     }

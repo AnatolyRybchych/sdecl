@@ -13,11 +13,15 @@ namespace sdecl
 
             CommandManager commandManager = new CommandManager(new RootCommandToken(args, sdecl));
 
+            //for all
+            commandManager.Commands.Add(new TypeCommand("type"));
+
             //for RootCommandToken
             commandManager.Commands.Add(new RootCommand("start"));
 
             //for all enumerables
             commandManager.Commands.Add(new IEnumerableAtCommand("at"));
+            commandManager.Commands.Add(new IEnumerableClearCommand("clear"));
 
             //for sdecl
             commandManager.Commands.Add(new CacheCommand("cache"));
