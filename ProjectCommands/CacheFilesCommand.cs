@@ -14,7 +14,7 @@ namespace sdecl.ProjectCommands
 
         public override object ExecuteCommand(Cache input, CommandManager mgr)
         {
-            return input.HeaderFiles;
+            return input.Settings.ObservableFiles;
         }
     }
 }

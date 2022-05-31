@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace sdecl
 {
-    public class RootCommandToken {
+    internal class RootCommandToken {
         public string[] Args { get; private set; }
-        public RootCommandToken(string[] args)
+        public sdecl Sdecl { get; private set; }
+        public RootCommandToken(string[] args, sdecl sdecl)
         {
             Args = args;
+            Sdecl = sdecl;
         }
     }
 
@@ -23,7 +25,7 @@ namespace sdecl
 
         public override object ExecuteCommand(RootCommandToken input, CommandManager mgr)
         {
-            CommandManager cmdMgr = new CommandManager(new sdecl());
+            CommandManager cmdMgr = new CommandManager(input.Sdecl);
             cmdMgr.Commands.AddRange(mgr.Commands);
 
             int arg = 0;

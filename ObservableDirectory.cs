@@ -10,16 +10,16 @@ namespace sdecl
     internal class ObservableDirectory
     {
         public string? Path { get; set; }
-        public bool Reqursive { get; set; }
+        public bool Recursive { get; set; }
 
         public ObservableDirectory()
         {
-            Reqursive = false;
+            Recursive = false;
         }
 
         public ObservableDirectory(string path, bool reqursive)
         {
-            Reqursive = reqursive;
+            Recursive = reqursive;
             Path = path;
         }
 
@@ -29,12 +29,24 @@ namespace sdecl
 
             var list = new List<ObservableDirectory>();
             list.Add(dir);
-            if (dir.Reqursive)
+            if (dir.Recursive)
                 foreach (var childDir in Directory.GetDirectories(dir.Path))
                     list.AddRange(ExpandReqursions(new ObservableDirectory(childDir, true)));
             return list;
         }
 
         public bool IsValid => Path != null && Directory.Exists(Path);
+
+        public override string ToString()
+        {
+            if (IsValid)
+            {
+                return $"Directory: \"{Path}\" {(Recursive ? "recursive" : "")}";
+            }
+            else
+            {
+                return $"Directory: \"{Path ?? "null"}\" invalid";
+            }
+        }
     }
 }
