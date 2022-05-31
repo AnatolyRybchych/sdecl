@@ -18,7 +18,7 @@ namespace sdecl
         {
             if(obj.GetType().GetMethod("ToString", new Type[0])?.DeclaringType == typeof(object))
             {
-                return JsonSerializer.Serialize(obj);
+                return JsonSerializer.Serialize(obj).FormatJson();
             }
             else
             {
