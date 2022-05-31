@@ -19,5 +19,22 @@ namespace sdecl
                 result[i] = array[i + index];
             return result;
         }
+
+        public static bool ContentEqualsAsIn<T>(this IEnumerable<T> first, IEnumerable<T> second) where T:class
+        {
+            var fit = first.GetEnumerator();
+            var sit = second.GetEnumerator();
+
+            fit.Reset();
+            sit.Reset();
+
+            while(fit.MoveNext())
+            {
+                if (sit.MoveNext() == false) return false;
+                if (fit.Current != sit.Current) return false;
+            }
+            if (sit.MoveNext()) return false;
+            else return true;
+        }
     }
 }

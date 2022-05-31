@@ -10,7 +10,7 @@ namespace sdecl
     internal abstract class Command
     {
         public CommandSignature Signeture { get; private set; }
-        public abstract Type InputType { get; }
+        public abstract bool IsTypeForInput(Type type);
 
         public abstract object Execute(object data, CommandManager mgr);
 

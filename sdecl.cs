@@ -18,7 +18,7 @@ namespace sdecl
 
         public override string ToString()
         {
-            return $"sdecl: [\n    cache\n]";
+            return $"sdecl:\n    cache";
         }
     }
 }

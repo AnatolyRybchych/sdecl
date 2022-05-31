@@ -22,7 +22,7 @@ namespace sdecl
             var Cmds = Commands.Where(cmd => cmd.Signeture.CommandName == commandName);
             if (Cmds.Count() == 0) throw new Exception($"unrecognized command \"{commandName}\"");
 
-            Cmds = Cmds.Where(cmd => cmd.InputType == CurrentData.GetType());
+            Cmds = Cmds.Where(cmd => cmd.IsTypeForInput(CurrentData.GetType()));
 
             int count = Cmds.Count();
             if (count == 0)
@@ -38,7 +38,7 @@ namespace sdecl
             var Cmds = Commands.Where(cmd => cmd.Signeture.CommandName == name);
             if (Cmds.Count() == 0) throw new Exception($"unrecognized command \"{name}\"");
 
-            Cmds = Cmds.Where(cmd => cmd.InputType == CurrentData.GetType());
+            Cmds = Cmds.Where(cmd => cmd.IsTypeForInput(CurrentData.GetType()));
 
             int count = Cmds.Count();
             if (count == 0)

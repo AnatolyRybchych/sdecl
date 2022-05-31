@@ -66,7 +66,7 @@ namespace sdecl
 
         public override string ToString()
         {
-            return $"cache: {{\n    dirs\n    files\n}}";
+            return $"cache: \n    dirs\n    files";
         }
     }
 }
