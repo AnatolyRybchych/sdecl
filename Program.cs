@@ -29,9 +29,9 @@ namespace sdecl
             //for Cache
             commandManager.Commands.Add(new CacheDirsCommand("dirs"));
             commandManager.Commands.Add(new CacheFilesCommand("files"));
-            commandManager.Commands.Add(new IEnumerableDirectoryAddCommand("add"));
 
             //for directories enumerable
+            commandManager.Commands.Add(new IEnumerableDirectoryAddCommand("add"));
             commandManager.Commands.Add(new IEnumerableSaveCommand<ObservableDirectory>("save", (e =>
             {
                 sdecl.Cache.Settings.ObservableDirectories = e.ToList();

@@ -19,7 +19,7 @@ namespace sdecl.ProjectCommands
 
         public override object ExecuteCommand(IEnumerable<ObservableFile> input, CommandManager mgr)
         {
-            return input.Append(new ObservableFile(Path.Value));
+            return input.Append(new ObservableFile(System.IO.Path.GetFullPath(Path.Value)));
         }
     }
 }

@@ -22,7 +22,7 @@ namespace sdecl.ProjectCommands
 
         public override object ExecuteCommand(IEnumerable<ObservableDirectory> input, CommandManager mgr)
         {
-            return input.Append(new ObservableDirectory(PathArgument.Value, ReqursiveArgument.Value));
+            return input.Append(new ObservableDirectory(Path.GetFullPath(PathArgument.Value), ReqursiveArgument.Value));
         }
     }
 }
