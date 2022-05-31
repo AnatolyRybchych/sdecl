@@ -9,7 +9,7 @@ namespace sdecl
     internal class IEnumerableAddCommand<T> : CommandWithTypeOrDerivative<IEnumerable<T>>
     {
         private TypedCommandArgument<T>[] arguments;
-        public IEnumerableAddCommand(TypedCommandArgument<T>[] arguments, string commandName = "add") : base(commandName)
+        public IEnumerableAddCommand(TypedCommandArgument<T>[] arguments, string commandName) : base(commandName)
         {
             this.arguments = arguments;
 

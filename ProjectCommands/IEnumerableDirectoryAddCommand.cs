@@ -12,7 +12,7 @@ namespace sdecl.ProjectCommands
         public PathCommandArgument PathArgument { get; private set; }
         public FlagArgument ReqursiveArgument { get; private set; }
 
-        public IEnumerableDirectoryAddCommand() : base("add")
+        public IEnumerableDirectoryAddCommand(string commandName) : base(commandName)
         {
             PathArgument = new PathCommandArgument(true, "path");
             ReqursiveArgument = new FlagArgument("reqursive", "-r");

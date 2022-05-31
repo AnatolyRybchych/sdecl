@@ -8,7 +8,7 @@ namespace sdecl
 {
     internal class CacheCommand : CommandWithType<sdecl>
     {
-        public CacheCommand() : base("cache")
+        public CacheCommand(string commandName) : base(commandName)
         {
 
         }

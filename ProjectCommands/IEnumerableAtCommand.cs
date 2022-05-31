@@ -10,7 +10,7 @@ namespace sdecl
     internal class IEnumerableAtCommand : CommandWithTypeOrDerivative<IEnumerable<object>>
     {
         private IntCommandArgument intArgument;
-        public IEnumerableAtCommand() : base("at")
+        public IEnumerableAtCommand(string commandName) : base(commandName)
         {
             intArgument = new IntCommandArgument(true, "index", 0);
             Signeture.Args.Add(intArgument);

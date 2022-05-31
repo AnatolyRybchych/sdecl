@@ -17,7 +17,7 @@ namespace sdecl
     internal class RootCommand : CommandWithType<RootCommandToken>
     {
 
-        public RootCommand():base("start")
+        public RootCommand(string commandName) :base(commandName)
         {
         }
 

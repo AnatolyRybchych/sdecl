@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sdecl
+namespace sdecl.ProjectCommands
 {
-    internal class CacheDirsCommand : CommandWithType<Cache>
+    internal class CacheFilesCommand : CommandWithType<Cache>
     {
-        public CacheDirsCommand(string commandName) : base(commandName)
+        public CacheFilesCommand(string commandName) : base(commandName)
         {
-
         }
 
         public override object ExecuteCommand(Cache input, CommandManager mgr)
         {
-            return input.Settings.ObservableDirectories;
+            return input.HeaderFiles;
         }
     }
 }
