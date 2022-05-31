@@ -1,5 +1,8 @@
 ﻿
 
+using sdecl.ProjectCommands;
+using System.Text.Json;
+
 namespace sdecl
 {
     class Program
@@ -12,9 +15,10 @@ namespace sdecl
             commandManager.Commands.Add(new CacheCommand());
             commandManager.Commands.Add(new DirsCommand());
             commandManager.Commands.Add(new IEnumerableAtCommand());
+            commandManager.Commands.Add(new IEnumerableDirectoryAddCommand());
 
             commandManager.Execute("start", args);
-            Console.WriteLine(commandManager.CurrentData);
+            Console.WriteLine(JsonSerializer.Serialize(commandManager.CurrentData));
         }
     }
 }
