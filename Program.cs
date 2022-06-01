@@ -48,8 +48,15 @@ namespace sdecl
             })));
             commandManager.Commands.Add(new StackFindCommand("find"));
 
-            commandManager.Execute("start", args);
-            Console.WriteLine(new CommandResonseSerializer().Serialize(commandManager.CurrentData));
+            try
+            {
+                commandManager.Execute("start", args);
+                Console.WriteLine(new CommandResonseSerializer().Serialize(commandManager.CurrentData));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

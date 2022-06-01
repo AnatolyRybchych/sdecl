@@ -17,6 +17,7 @@ namespace sdecl.ProjectCommands
         public DeleteStackCommand(string commandName) : base(commandName)
         {
             StackName = new StringCommandArgument(true, "stack name", @"[a-zA-Z0-9_]*");
+            Signeture.Args.Add(StackName);
         }
 
         public override object ExecuteCommand(Sdecl input, CommandManager.CommandManager mgr)
@@ -24,7 +25,7 @@ namespace sdecl.ProjectCommands
             if (input.CurrStackName == StackName.Value)
                 input.CurrStackName = null;
             if (File.Exists(Stack.GetPath(StackName.Value)))
-                File.Delete(StackName.Value);
+                File.Delete(Stack.GetPath(StackName.Value));
             else
                 return new StackDeleteStatus(false, $"Stack named \"{StackName.Value}\" not found");
             return new StackDeleteStatus(true);
