@@ -39,6 +39,12 @@ namespace sdecl
             return result;
         }
 
+        public static string[] GetStacks()
+        {
+            if (Directory.Exists(StacksFolderPath) == false) Directory.CreateDirectory(StacksFolderPath);
+            return Directory.GetFiles(StacksFolderPath).Where(file => file.Contains(StackExtension)).Select(file => Path.GetFileName(file.Replace(StackExtension, ""))).ToArray();
+        }
+
         public static Stack Deserialize(string stack)
         {
             Stack? result;

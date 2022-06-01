@@ -27,6 +27,7 @@ namespace sdecl
             commandManager.Commands.Add(new StackCommand("stack"));
             commandManager.Commands.Add(new SelectStackCommand("select"));
             commandManager.Commands.Add(new DeleteStackCommand("delete"));
+            commandManager.Commands.Add(new ListStacksCommand("list"));
 
             //for Stack
             commandManager.Commands.Add(new StackDirsCommand("dirs"));
