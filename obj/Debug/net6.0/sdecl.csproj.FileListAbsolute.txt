@@ -13,3 +13,5 @@ C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\refint\sdecl.dll
 C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.pdb
 C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.genruntimeconfig.cache
 C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\ref\sdecl.dll
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0\CommandManager.dll
+C:\Users\Velichaisyi\Desktop\sdecl\sdecl\obj\Debug\net6.0\sdecl.csproj.CopyComplete
