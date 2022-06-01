@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl.CommandArgs
+﻿
+namespace CommandManager
 {
     internal class FlagArgument : TypedCommandArgument<bool>
     {

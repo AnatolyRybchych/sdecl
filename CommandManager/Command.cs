@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿
 
-namespace sdecl
+namespace CommandManager
 {
     internal abstract class Command
     {
+        public abstract string Help { get; }
         public CommandSignature Signeture { get; private set; }
         public abstract bool IsTypeForInput(Type type);
 
@@ -17,6 +13,11 @@ namespace sdecl
         public Command(string commandName)
         {
             Signeture = new CommandSignature(commandName);
+        }
+
+        public override string ToString()
+        {
+            return $"\"{Signeture.CommandName}\"\trequired[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired))}],\tvariadic[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired == false))}]\t- {Help}";
         }
     }
 }

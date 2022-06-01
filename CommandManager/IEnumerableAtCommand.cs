@@ -1,11 +1,5 @@
-﻿using sdecl.CommandArgs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl
+﻿
+namespace CommandManager
 {
     internal class IEnumerableAtCommand : CommandWithTypeOrDerivative<IEnumerable<object>>
     {
@@ -15,6 +9,8 @@ namespace sdecl
             intArgument = new IntCommandArgument(true, "index", 0);
             Signeture.Args.Add(intArgument);
         }
+
+        public override string Help => "returns element in collection uisng id, id >= 0";
 
         public override object ExecuteCommand(IEnumerable<object> input, CommandManager mgr)
         {

@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sdecl.ProjectCommands
+namespace CommandManager
 {
     internal class IEnumerableClearCommand : CommandWithTypeOrDerivative<IEnumerable<object>>
     {
         public IEnumerableClearCommand(string commandName) : base(commandName)
         {
         }
+
+        public override string Help => "returns empty collection with same type";
 
         public override object ExecuteCommand(IEnumerable<object> input, CommandManager mgr)
         {

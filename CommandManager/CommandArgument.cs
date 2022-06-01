@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl
+﻿
+namespace CommandManager
 {
     internal abstract class CommandArgument
     {
@@ -12,7 +7,7 @@ namespace sdecl
 
         public bool IsRequired { get; private set; }
         public string Name { get; private set; }
-        protected object? ObjValue { get; private set; }
+        public object? ObjValue { get; private set; }
         
 
         public CommandArgument(bool required, string name)
@@ -32,7 +27,7 @@ namespace sdecl
             }
         }
 
-        public override string ToString() => $"{{{this.Type.Name}:{Name}}}";
+        public override string ToString() => $"{this.Type.Name}:{Name}";
 
         public abstract Type Type { get; }
 

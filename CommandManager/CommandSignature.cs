@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl
+﻿
+namespace CommandManager
 {
     internal class CommandSignature
     {
@@ -31,12 +26,14 @@ namespace sdecl
                     else
                     {
                         arg.Set(strArg);
-                        ArgsParsed++;
+                        if(arg.ObjValue != null)
+                            ArgsParsed++;
                     }
                 }
                 catch(Exception)
                 {
                     args.ReturnPrevious();
+                    break;
                 }
             }
         }

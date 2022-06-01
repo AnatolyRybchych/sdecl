@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace sdecl
+﻿
+namespace CommandManager
 {
     internal class CommandResonseSerializer
     {
@@ -23,7 +17,12 @@ namespace sdecl
             else  
             {
                 if((obj.GetType().IsAssignableTo(typeof(IEnumerable<object>))))
-                    return "[\n    " + string.Join(",\n    ", ((IEnumerable<object>)obj).Select(o => Serialize(o))) + "\n]";
+                {
+                    if (((IEnumerable<object>)obj).Count() == 0) 
+                        return "[]";
+                    else
+                        return  "[\n    " + string.Join(",\n    ", ((IEnumerable<object>)obj).Select(o => Serialize(o))) + "\n]";
+                }
                 else
                     return JsonSerializer.Serialize(obj).FormatJson();
             }

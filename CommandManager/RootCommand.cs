@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl
+﻿
+namespace CommandManager
 {
     internal class RootCommandToken {
         public string[] Args { get; private set; }
-        public sdecl Sdecl { get; private set; }
-        public RootCommandToken(string[] args, sdecl sdecl)
+        public object InitialData { get; private set; }
+        public RootCommandToken(string[] args, object initialData)
         {
             Args = args;
-            Sdecl = sdecl;
+            InitialData = initialData;
         }
     }
 
@@ -23,9 +18,11 @@ namespace sdecl
         {
         }
 
+        public override string Help => "root";
+
         public override object ExecuteCommand(RootCommandToken input, CommandManager mgr)
         {
-            CommandManager cmdMgr = new CommandManager(input.Sdecl);
+            CommandManager cmdMgr = new CommandManager(input.InitialData);
             cmdMgr.Commands.AddRange(mgr.Commands);
 
             int arg = 0;

@@ -23,16 +23,22 @@ namespace sdecl
             Path = path;
         }
 
-        public static List<ObservableDirectory> ExpandReqursions(ObservableDirectory dir)
+        public string[] GetFiles()
         {
-            if (dir.IsValid == false) throw new ArgumentException("directory is invalid");
+            if (IsValid)
+            {
+                List<string> result = new List<string>();
 
-            var list = new List<ObservableDirectory>();
-            list.Add(dir);
-            if (dir.Recursive)
-                foreach (var childDir in Directory.GetDirectories(dir.Path))
-                    list.AddRange(ExpandReqursions(new ObservableDirectory(childDir, true)));
-            return list;
+                result.AddRange(Directory.GetFiles(Path));
+                foreach (var dir in Directory.GetDirectories(Path))
+                    result.AddRange(new ObservableDirectory(dir, true).GetFiles());
+                
+                return result.ToArray();
+            }
+            else
+            {
+                return new string[0];
+            }
         }
 
         public bool IsValid => Path != null && Directory.Exists(Path);
@@ -45,7 +51,7 @@ namespace sdecl
             }
             else
             {
-                return $"Directory: \"{Path ?? "null"}\" invalid";
+                return $"Directory: \"{Path ?? "null"}\" {(Recursive ? "recursive" : "")} invalid";
             }
         }
     }

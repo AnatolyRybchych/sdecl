@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,9 @@ namespace sdecl.ProjectCommands
         {
         }
 
-        public override object ExecuteCommand(object input, CommandManager mgr)
+        public override string Help => "returns type";
+
+        public override object ExecuteCommand(object input, CommandManager.CommandManager mgr)
         {
             return input.GetType().Name;
         }

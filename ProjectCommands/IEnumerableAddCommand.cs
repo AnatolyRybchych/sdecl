@@ -1,14 +1,16 @@
-﻿using System;
+﻿using CommandManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sdecl
+namespace sdecl.ProjectCommands
 {
     internal class IEnumerableAddCommand<T> : CommandWithTypeOrDerivative<IEnumerable<T>>
     {
         private TypedCommandArgument<T>[] arguments;
+
         public IEnumerableAddCommand(TypedCommandArgument<T>[] arguments, string commandName) : base(commandName)
         {
             this.arguments = arguments;
@@ -19,7 +21,9 @@ namespace sdecl
             Signeture.Args.AddRange(arguments);
         }
 
-        public override object ExecuteCommand(IEnumerable<T> input, CommandManager mgr)
+        public override string Help => "returns collection with new element";
+
+        public override object ExecuteCommand(IEnumerable<T> input, CommandManager.CommandManager mgr)
         {
             foreach (var arg in arguments)
                 input.Append(arg.Value);
