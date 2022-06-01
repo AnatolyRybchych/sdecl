@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -68,7 +69,7 @@ namespace sdecl
 
         public void Save() => File.WriteAllText(FilePath, JsonSerializer.Serialize(this));
 
-        public const string FilePath = "sdecl.json";
+        public static readonly string FilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? "./sdecl.dll") ?? "./", "sdecl.json");
 
         public override string ToString()
         {
