@@ -3,6 +3,42 @@ tool for searching for declarations in headr files
 
 > [CommandManager](https://github.com/AnatolyRybchych/CommandManager)
 
+> Commands
+```cmd
+$ sdecl commands
+[
+    commands    required[],     variadic[]      - returns list of commands for this type
+    stack       required[],     variadic[]      - selects last selected stack
+    select      required[String:stack name],    variadic[]      - selects stack using name
+    delete      required[String:stack name],    variadic[]      - deletes stack by name
+]
+$ sdecl stack commands
+[
+    commands    required[],     variadic[]      - returns list of commands for this type
+    dirs        required[],     variadic[]      - returns collection of directories, of current stack
+    files       required[],     variadic[]      - returns collection of files in current stack
+    all required[],     variadic[]      - returns all file in stack
+]
+$ sdecl stack dirs commands
+[
+    commands    required[],     variadic[]      - returns list of commands for this type
+    at  required[Int32:index],  variadic[]      - returns element in collection uisng id, id >= 0
+    clear       required[],     variadic[]      - returns empty collection with same type
+    add required[String:path],  variadic[Boolean:recursive]     - returns collection with new directory {path, -r(recursive, variadic)}
+    save        required[],     variadic[]      - saves collection state
+]
+
+$ sdecl stack files commands
+[
+    commands    required[],     variadic[]      - returns list of commands for this type
+    at  required[Int32:index],  variadic[]      - returns element in collection uisng id, id >= 0
+    clear       required[],     variadic[]      - returns empty collection with same type
+    add required[String:path],  variadic[]      - returns collection with new File{path}
+    save        required[],     variadic[]      - saves collection state
+    find        required[String:target],        variadic[Int32:lines before, Int32:lines after, Int32:max matches count]        - searching text in current stack files
+]
+```
+> Example
 ```cmd
 $ sdecl select test
 stack select successful
