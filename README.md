@@ -11,6 +11,7 @@ $ sdecl commands
     stack       required[],     variadic[]      - selects last selected stack
     select      required[String:stack name],    variadic[]      - selects stack using name
     delete      required[String:stack name],    variadic[]      - deletes stack by name
+    list        required[],     variadic[]      - returns list of sdecl stacks
 ]
 $ sdecl stack commands
 [
@@ -42,6 +43,10 @@ $ sdecl stack files commands
 ```txt
 $ sdecl select test
 stack select successful
+$ sdecl list
+[
+    test
+]
 $ sdecl stack dirs add "C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0" -r save
 [
     Directory: "C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0" recursive
