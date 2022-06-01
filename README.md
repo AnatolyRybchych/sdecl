@@ -11,7 +11,7 @@ $ sdecl stack dirs add "C:\Program Files (x86)\Windows Kits\10\Include\10.0.1904
     Directory: "C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0" recursive
 ]
 $ stack all find glClear
-C:\Users\Velichaisyi\Desktop\sdecl\sdecl\bin\Debug\net6.0>sdecl stack all find glClear
+$ sdecl stack all find glClear
 [
     WINGDIAPI void APIENTRY glClear (GLbitfield mask);
     WINGDIAPI void APIENTRY glClearAccum (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
