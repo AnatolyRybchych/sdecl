@@ -37,6 +37,7 @@ $ sdecl stack files commands
     add required[String:path],  variadic[]      - returns collection with new File{path}
     save        required[],     variadic[]      - saves collection state
     find        required[String:target],        variadic[Int32:lines before, Int32:lines after, Int32:max matches count]        - searching text in current stack files
+    with        required[String:substring],     variadic[Boolean:name]  - returns subcollection where ( path or name if -n ) is contains substring
 ]
 ```
 > Example
