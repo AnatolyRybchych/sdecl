@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json;
+
 namespace CommandManager
 {
     internal class CommandResonseSerializer
@@ -21,7 +23,7 @@ namespace CommandManager
                     if (((IEnumerable<object>)obj).Count() == 0) 
                         return "[]";
                     else
-                        return  "[\n    " + string.Join(",\n    ", ((IEnumerable<object>)obj).Select(o => Serialize(o))) + "\n]";
+                        return  "[\n    " + string.Join("\n    ", ((IEnumerable<object>)obj).Select(o => Serialize(o))) + "\n]";
                 }
                 else
                     return JsonSerializer.Serialize(obj).FormatJson();

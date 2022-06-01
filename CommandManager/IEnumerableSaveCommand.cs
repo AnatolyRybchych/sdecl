@@ -1,11 +1,5 @@
-﻿using CommandManager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sdecl.ProjectCommands
+﻿
+namespace CommandManager
 {
     internal class IEnumerableSaveCommand<T> : CommandWithTypeOrDerivative<IEnumerable<T>>
     {
@@ -18,7 +12,7 @@ namespace sdecl.ProjectCommands
             SavingAction = savingAction;
         }
 
-        public override object ExecuteCommand(IEnumerable<T> input, CommandManager.CommandManager mgr)
+        public override object ExecuteCommand(IEnumerable<T> input, CommandManager mgr)
         {
             SavingAction(input);
             return input;

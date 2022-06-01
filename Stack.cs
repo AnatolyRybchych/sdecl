@@ -50,7 +50,7 @@ namespace sdecl
             {
                 try
                 {
-                    result = JsonSerializer.Deserialize<Stack>(stackPath);
+                    result = JsonSerializer.Deserialize<Stack>(File.ReadAllText(stackPath));
                     if (result == null)
                         File.Delete(stackPath);
                     else
@@ -82,7 +82,7 @@ namespace sdecl
 
         public override string ToString()
         {
-            return $"stack \"{Name}\": \n    dirs\n    files\n";
+            return $"use command commands to see available commands, exampe: sdecl stack commands";
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿
-
-using CommandManager;
+﻿using CommandManager;
 using sdecl.ProjectCommands;
-using System.Text.Json;
+
 
 namespace sdecl
 {
@@ -25,7 +23,7 @@ namespace sdecl
             commandManager.Commands.Add(new IEnumerableAtCommand("at"));
             commandManager.Commands.Add(new IEnumerableClearCommand("clear"));
 
-            //for sdecl
+            //for Sdecl
             commandManager.Commands.Add(new StackCommand("stack"));
             commandManager.Commands.Add(new SelectStackCommand("select"));
             commandManager.Commands.Add(new DeleteStackCommand("delete"));
@@ -33,19 +31,18 @@ namespace sdecl
             //for Stack
             commandManager.Commands.Add(new StackDirsCommand("dirs"));
             commandManager.Commands.Add(new StackFilesCommand("files"));
+            commandManager.Commands.Add(new StackFindCommand("find"));
 
             //for directories enumerable
             commandManager.Commands.Add(new IEnumerableDirectoryAddCommand("add"));
-            commandManager.Commands.Add(new IEnumerableSaveCommand<ObservableDirectory>("save", (e =>
-            {
+            commandManager.Commands.Add(new IEnumerableSaveCommand<ObservableDirectory>("save", (e =>{
                 sdecl.CurrStack.ObservableDirectories = e.ToList();
                 sdecl.CurrStack.Serialize();
             })));
 
-            // for files enumerable
+            //for files enumerable
             commandManager.Commands.Add(new IEnumerableFilesAddCommand("add"));
-            commandManager.Commands.Add(new IEnumerableSaveCommand<ObservableFile>("save", (e =>
-            {
+            commandManager.Commands.Add(new IEnumerableSaveCommand<ObservableFile>("save", (e =>{
                 sdecl.CurrStack.ObservableFiles = e.ToList();
                 sdecl.CurrStack.Serialize();
             })));

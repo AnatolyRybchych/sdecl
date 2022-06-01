@@ -29,6 +29,7 @@ namespace sdecl
             {
                 CurrStack = Stack.Deserialize(CurrStackName);
             }
+            Save();
         }
 
         public static Sdecl Get()
@@ -71,7 +72,7 @@ namespace sdecl
 
         public override string ToString()
         {
-            return $"sdecl:\n    stack\n    select\n    delete";
+            return $"use command commands to see avalable commands, example: sdecl commands";
         }
     }
 }
