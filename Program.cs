@@ -48,6 +48,7 @@ namespace sdecl
                 sdecl.CurrStack.Serialize();
             })));
             commandManager.Commands.Add(new StackFindCommand("find"));
+            commandManager.Commands.Add(new FilesWithCommand("with"));
 
             try
             {
