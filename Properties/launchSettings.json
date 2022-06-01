@@ -2,7 +2,7 @@
   "profiles": {
     "sdecl": {
       "commandName": "Project",
-      "commandLineArgs": "stack files find \"glClear\""
+      "commandLineArgs": "stack all find \"gl\" at 1"
     }
   }
 }

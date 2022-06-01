@@ -31,7 +31,7 @@ namespace sdecl
             //for Stack
             commandManager.Commands.Add(new StackDirsCommand("dirs"));
             commandManager.Commands.Add(new StackFilesCommand("files"));
-            commandManager.Commands.Add(new StackFindCommand("find"));
+            commandManager.Commands.Add(new StackAllCommand("all"));
 
             //for directories enumerable
             commandManager.Commands.Add(new IEnumerableDirectoryAddCommand("add"));
@@ -46,6 +46,7 @@ namespace sdecl
                 sdecl.CurrStack.ObservableFiles = e.ToList();
                 sdecl.CurrStack.Serialize();
             })));
+            commandManager.Commands.Add(new StackFindCommand("find"));
 
             commandManager.Execute("start", args);
             Console.WriteLine(new CommandResonseSerializer().Serialize(commandManager.CurrentData));

@@ -26,8 +26,10 @@ namespace CommandManager
                     else
                     {
                         arg.Set(strArg);
-                        if(arg.ObjValue != null)
+                        if (arg.ObjValue != null)
                             ArgsParsed++;
+                        else
+                            break;
                     }
                 }
                 catch(Exception)

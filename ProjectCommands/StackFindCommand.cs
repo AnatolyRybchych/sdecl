@@ -79,7 +79,7 @@ namespace sdecl.ProjectCommands
             if (start > 2) start -= 2;
             else if (start > 0) start = 0;
 
-            while (linesAfter != 0 && end != lineLen)
+            while (linesAfter != 0 && end != lineLast)
             {
                 if (str[++end] == '\n') linesAfter--;
             }

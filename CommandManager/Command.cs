@@ -17,7 +17,7 @@ namespace CommandManager
 
         public override string ToString()
         {
-            return $"\"{Signeture.CommandName}\"\trequired[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired))}],\tvariadic[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired == false))}]\t- {Help}";
+            return $"{Signeture.CommandName}\trequired[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired))}],\tvariadic[{string.Join(", ", Signeture.Args.Where(arg => arg.IsRequired == false))}]\t- {Help}";
         }
     }
 }
