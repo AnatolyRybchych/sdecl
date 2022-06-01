@@ -4,7 +4,7 @@ tool for searching for declarations in headr files
 > [CommandManager](https://github.com/AnatolyRybchych/CommandManager)
 
 > Commands
-```cmd
+```txt
 $ sdecl commands
 [
     commands    required[],     variadic[]      - returns list of commands for this type
@@ -39,7 +39,7 @@ $ sdecl stack files commands
 ]
 ```
 > Example
-```cmd
+```txt
 $ sdecl select test
 stack select successful
 $ sdecl stack dirs add "C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0" -r save
