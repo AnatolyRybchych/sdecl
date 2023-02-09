@@ -1,5 +1,5 @@
 # sdecl
-tool for searching for declarations in headr files
+tool for searching for declarations in header files
 
 > [CommandManager](https://github.com/AnatolyRybchych/CommandManager)
 
